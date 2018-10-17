@@ -1,4 +1,4 @@
-boolean moveLeft, moveRight, moveUp, moveDown, shoot;
+boolean moveUp, moveDown;
 
 void keyPressed() {
   if (key == CODED){
@@ -30,10 +30,10 @@ float getAxisRaw(String axis){
   
   if (axis == "Vertical"){
     if(moveUp){
-      frameRate = frameRate + 1;
+      fps = fps + 1;
     }
     if(moveDown){
-      frameRate = frameRate - 1;
+      fps = fps - 1;
     }
   }
 return 0;

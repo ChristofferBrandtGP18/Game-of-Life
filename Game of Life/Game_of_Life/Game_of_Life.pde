@@ -1,5 +1,5 @@
 GameObject cells[][];
-float cellSize = 10;
+float cellSize = 10, fps;
 int numberOfColums, numberOfRows, fillPercentage = 15,
     timeSec;
 
@@ -8,7 +8,8 @@ void setup() {
   size(512, 512);
   ellipseMode(LEFT);
   background(216, 205, 201);
-  frameRate(5);
+  frameRate(fps);
+  fps = 5;
   timeSec = millis()/1000;
   
   numberOfColums = (int)Math.floor(width/cellSize);
