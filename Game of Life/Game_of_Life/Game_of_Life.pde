@@ -51,7 +51,7 @@ void newCellData()
   {
     for (int x = 0; x < numberOfColumns; ++x)
     {
-      cells[x][y].calculateNextGeneration(x, y);
+      cells[x][y].calculateNextCells(x, y);
     }
   }
 }

@@ -12,7 +12,7 @@ public class GameObject
     this.size = size;
   }
 
-  void calculateNextGeneration(int x, int y)
+  void calculateNextCells(int x, int y)
   {
     neighbours = countNeighbours(x, y);
     setNextGenerationState();
