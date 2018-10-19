@@ -30,32 +30,11 @@ void setup()
 
 void draw()
 {
-  newDraw();
+  nextDraw();
   newCellData();
   drawCells();
-  loadNextCells();
+  updateNextCells();
 }
-
-
-void newDraw()
-{
-  fill(216, 201, 205);
-  rect(0, 0, width, height);
-  fill(255 ,205, 14);
-}
-
-
-void newCellData()
-{
-  for (int y = 0; y < numberOfRows; ++y)
-  {
-    for (int x = 0; x < numberOfColumns; ++x)
-    {
-      cells[x][y].calculateNextCells(x, y);
-    }
-  }
-}
-
 
 void drawCells()
 {
@@ -68,8 +47,18 @@ void drawCells()
   }
 }
 
+void newCellData()
+{
+  for (int y = 0; y < numberOfRows; ++y)
+  {
+    for (int x = 0; x < numberOfColumns; ++x)
+    {
+      cells[x][y].calculateNextCells(x, y);
+    }
+  }
+}
 
-void loadNextCells()
+void updateNextCells()
 {
   for (int y = 0; y < numberOfRows; ++y)
   {
@@ -78,4 +67,11 @@ void loadNextCells()
       cells[x][y].updateCellState();
     }
   }
+}
+
+void nextDraw()
+{
+  fill(216, 201, 205);
+  rect(0, 0, width, height);
+  fill(255 ,205, 14);
 }
