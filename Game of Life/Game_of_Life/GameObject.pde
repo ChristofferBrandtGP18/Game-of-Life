@@ -14,12 +14,12 @@ public class GameObject
 
   void calculateNextCells(int x, int y)
   {
-    neighbours = countNeighbours(x, y);
+    neighbours = checkNeighbours(x, y);
     setNextGenerationState();
   }
 
 
-  int countNeighbours(int x, int y)
+  int checkNeighbours(int x, int y)
   {
     neighbours = 0;
 
