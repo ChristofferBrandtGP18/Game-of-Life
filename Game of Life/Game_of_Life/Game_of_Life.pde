@@ -8,7 +8,7 @@ void setup()
   size(377, 377);
   strokeWeight(0);
   ellipseMode(LEFT);
-  frameRate(3);
+  frameRate(2);
 
   numberOfColumns = (int)Math.floor(width / cellSize);
   numberOfRows = (int)Math.floor(height / cellSize);

@@ -1,9 +1,9 @@
 public class GameObject
 {
-  int x, y, size, neighbourCount;
+  int x, y, size, neighbours;
 
   boolean alive = false,
-  aliveNextGeneration = false;
+  aliveNextCells = false;
 
   public GameObject (int x, int y, int size)
   {
@@ -14,14 +14,14 @@ public class GameObject
 
   void calculateNextGeneration(int x, int y)
   {
-    neighbourCount = countNeighbours(x, y);
+    neighbours = countNeighbours(x, y);
     setNextGenerationState();
   }
 
 
   int countNeighbours(int x, int y)
   {
-    neighbourCount = 0;
+    neighbours = 0;
 
     for (int deltaY = -1; deltaY < 2; deltaY++)
     {
@@ -36,7 +36,7 @@ public class GameObject
         {
           if (cells[x + deltaX][y + deltaY].alive)
           {
-            neighbourCount++;
+            neighbours++;
           }
         }
         catch (ArrayIndexOutOfBoundsException e)
@@ -46,7 +46,7 @@ public class GameObject
       }  
     }
 
-    return neighbourCount;
+    return neighbours;
   }
 
 
@@ -55,24 +55,24 @@ public class GameObject
   {
     if (!alive)
     {
-      if (neighbourCount == 3)
+      if (neighbours == 3)
       {
-        aliveNextGeneration = true;
+        aliveNextCells = true;
       }
       else
       {
-        aliveNextGeneration = false;
+        aliveNextCells = false;
       }
     }
 
-    else if ((neighbourCount < 2) || (neighbourCount > 3))
+    else if ((neighbours < 2) || (neighbours > 3))
     {
-      aliveNextGeneration = false;
+      aliveNextCells = false;
     }
 
     else
     {
-      aliveNextGeneration = true;
+      aliveNextCells = true;
 
     }
   }
@@ -89,7 +89,7 @@ public class GameObject
 
   void updateCellState()
   {
-    alive = aliveNextGeneration;
+    alive = aliveNextCells;
   }
 
 
