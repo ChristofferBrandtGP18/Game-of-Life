@@ -33,7 +33,7 @@ void draw()
   newDraw();
   newCellData();
   drawCells();
-  loadNextGeneration();
+  loadNextCells();
 }
 
 
@@ -69,7 +69,7 @@ void drawCells()
 }
 
 
-void loadNextGeneration()
+void loadNextCells()
 {
   for (int y = 0; y < numberOfRows; ++y)
   {
